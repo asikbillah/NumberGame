@@ -1,0 +1,49 @@
+.main{
+    border: 2px solid greenyellow;
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.Input{
+    padding: 10px;
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    border: 2px solid greenyellow;
+    border-radius: 8px;
+}
+
+.Submit{
+    background-color: rgb(114, 188, 4);
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.Submit:hover{
+    background-color: green;
+    color: white;
+
+}
+
+.error{
+    color: red;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.secondUi{
+    display: none;
+}
+.thirdUi{
+    display: none;
+}
+
+.fourthUi{
+    display: none;
+}
