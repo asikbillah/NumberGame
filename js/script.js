@@ -26,7 +26,10 @@ let fourthUiError = document.querySelector(".fourthUiError");
 
 let lives = 5;
 
+
+
 firstSubmit.addEventListener("click", () => {
+
     let value = Number(firstInput.value);
     if (value) {
         firstUiError.innerHTML = "Please enter a string";
@@ -72,6 +75,10 @@ thirdSubmit.addEventListener("click", () => {
             thirdUi.style.display = "none";
             fourthUi.style.display = "block";
             fourthUiHeading.innerHTML = "Second Player Wins";
+
+            firstInput.value = "";
+            secondInput.value = "";
+            thirdInput.value = "";
         }
         else {
             lives--;
@@ -81,10 +88,19 @@ thirdSubmit.addEventListener("click", () => {
                 thirdUi.style.display = "none";
                 fourthUi.style.display = "block";
                 fourthUiHeading.innerHTML = "First Player Win!";
+
+                firstInput.value = "";
+                secondInput.value = "";
+                thirdInput.value = "";
             }
+
+
         }
     }
     else {
         thirdUiError.innerHTML = "Please enter a number between 1 and 10";
     }
+
+
+
 })
