@@ -62,8 +62,6 @@ secondSubmit.addEventListener("click", () => {
 thirdSubmit.addEventListener("click", () => {
 
     let value = Number(thirdInput.value);
-
-
     if (value == "") {
         thirdUiError.innerHTML = "Please Enter a number";
 
