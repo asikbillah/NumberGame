@@ -24,6 +24,8 @@ let fourthInput = document.querySelector(".fourthInput");
 let fourthSubmit = document.querySelector(".fourthSubmit");
 let fourthUiError = document.querySelector(".fourthUiError");
 
+let lives = 5;
+
 firstSubmit.addEventListener("click", () => {
     let value = Number(firstInput.value);
     if (value) {
@@ -61,54 +63,28 @@ thirdSubmit.addEventListener("click", () => {
 
     let value = Number(thirdInput.value);
 
+
     if (value == "") {
         thirdUiError.innerHTML = "Please Enter a number";
 
-    }else if (!value) {
+    } else if (!value) {
         thirdUiError.innerHTML = "Please enter a number not string";
-    }else if (value > 0 && value <= 10) {
-        
-        // for (let i = 5; i <= attempt; i--) {
-            if (value == secondInput.value) {
+    } else if (value > 0 && value <= 10) {
+        if (value == secondInput.value) {
+            thirdUi.style.display = "none";
+            fourthUi.style.display = "block";
+            fourthUiHeading.innerHTML = "Second Player Wins";
+        }
+        else {
+            lives--;
+            thirdUiError.innerHTML = `Wrong guess. You have ${lives} chances left`;
+            thirdUiHeading.innerHTML = "Second Player";
+            if (lives == 0) {
                 thirdUi.style.display = "none";
                 fourthUi.style.display = "block";
-                fourthUiHeading.innerHTML = "Second Player Wins";
+                fourthUiHeading.innerHTML = "First Player Win!";
             }
-            else{
-                for (let i = 5; i >= 0; i--) {
-                    thirdUiError.innerHTML = `Wrong guess. You have ${i} chances left`;
-                    console.log(i);
-                    secondUi.style.display = "none";
-                    thirdUi.style.display = "block";
-                    thirdUiHeading.innerHTML = "Second Player";
-                    if (i == 0) {
-                        thirdUi.style.display = "none";
-                        fourthUi.style.display = "block";
-                        fourthUiHeading.innerHTML = "First Player Win!";
-                    }  
-                }
-            }
-        // }
-
-
-        // if (value == secondInput.value) {
-        //     thirdUi.style.display = "none";
-        //     fourthUi.style.display = "block";
-        //     fourthUiHeading.innerHTML = "Second Player Wins";
-        // } else {
-        //     let attempt = 5;
-        //     attempt--;
-        //     if (attempt > 0) {
-        //         for(let i=5; i < attempt; i--){
-        //             thirdUiError.innerHTML = `Wrong guess. You have ${attempt} chances left`;
-        //         }
-        //     }
-        //     else {
-        //         thirdUi.style.display = "none";
-        //         fourthUi.style.display = "block";
-        //         fourthUiHeading.innerHTML = "First Player Win!";
-        //     }
-        // }
+        }
     }
     else {
         thirdUiError.innerHTML = "Please enter a number between 1 and 10";
