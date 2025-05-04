@@ -93,8 +93,6 @@ thirdSubmit.addEventListener("click", () => {
                 secondInput.value = "";
                 thirdInput.value = "";
             }
-
-
         }
     }
     else {
