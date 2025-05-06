@@ -1,8 +1,18 @@
 .main {
     border: 2px solid greenyellow;
-    height: 500px;
+    height: 300px;
     width: 500px;
     margin: 0 auto;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    color: black;
     text-align: center;
     background-color: aquamarine;
 }
@@ -47,5 +57,8 @@
 }
 
 .fourthUi {
+    display: none;
+}
+.fifthUi {
     display: none;
 }

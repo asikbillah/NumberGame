@@ -24,8 +24,21 @@ let fourthInput = document.querySelector(".fourthInput");
 let fourthSubmit = document.querySelector(".fourthSubmit");
 let fourthUiError = document.querySelector(".fourthUiError");
 
+let fifthUi = document.querySelector(".fifthUi");
+let fifthUiHeading = document.querySelector(".fifthUiHeading");
+let fifthUiError = document.querySelector(".fifthUiError");
+
 let lives = 5;
 
+
+function showMessage(event) {
+
+    event.style.display = "block";
+
+    setTimeout(() => {
+        event.style.display = "none";
+    }, 4000);
+}
 
 
 firstSubmit.addEventListener("click", () => {
@@ -33,8 +46,10 @@ firstSubmit.addEventListener("click", () => {
     let value = Number(firstInput.value);
     if (value) {
         firstUiError.innerHTML = "Please enter a string";
+        showMessage(firstUiError);
     } else if (value == " ") {
         firstUiError.innerHTML = "Please enter a valid Name";
+        showMessage(firstUiError);
     } else {
         firstUi.style.display = "none";
         secondUi.style.display = "block";
@@ -48,15 +63,17 @@ secondSubmit.addEventListener("click", () => {
     let value = Number(secondInput.value);
     if (value == "") {
         secondUiError.innerHTML = "Please Enter a number";
+        showMessage(secondUiError);
     } else if (!value) {
         secondUiError.innerHTML = "Please enter a number not string";
+        showMessage(secondUiError);
     } else {
         if (value > 0 && value <= 10) {
             secondUi.style.display = "none";
             thirdUi.style.display = "block";
-            thirdUiHeading.innerHTML = "Second Player";
         } else {
             secondUiError.innerHTML = "Please enter a number between 1 and 10";
+            showMessage(secondUiError);
         }
     }
 
@@ -65,40 +82,61 @@ secondSubmit.addEventListener("click", () => {
 thirdSubmit.addEventListener("click", () => {
 
     let value = Number(thirdInput.value);
+    if (value) {
+        thirdUiError.innerHTML = "Please enter a string";
+        showMessage(thirdUiError);
+    } else if (value == " ") {
+        thirdUiError.innerHTML = "Please enter a valid Name";
+        showMessage(thirdUiError);
+    } else {
+        thirdUi.style.display = "none";
+        fourthUi.style.display = "block";
+        fourthUiHeading.innerHTML = `Second Player ${thirdInput.value}`;
+    }
+
+})
+
+fourthSubmit.addEventListener("click", () => {
+
+    let value = Number(fourthInput.value);
     if (value == "") {
-        thirdUiError.innerHTML = "Please Enter a number";
+        fourthUiError.innerHTML = "Please Enter a number";
+        showMessage(fourthUiError);
 
     } else if (!value) {
-        thirdUiError.innerHTML = "Please enter a number not string";
+        fourthUiError.innerHTML = "Please enter a number not string";
+        showMessage(fourthUiError);
     } else if (value > 0 && value <= 10) {
         if (value == secondInput.value) {
-            thirdUi.style.display = "none";
-            fourthUi.style.display = "block";
-            fourthUiHeading.innerHTML = "Second Player Wins";
+            fourthUi.style.display = "none";
+            fifthUi.style.display = "block";
+            fifthUiHeading.innerHTML = `${thirdInput.value} Wins`;
 
             firstInput.value = "";
             secondInput.value = "";
             thirdInput.value = "";
+            fourthInput.value = "";
         }
         else {
             lives--;
-            thirdUiError.innerHTML = `Wrong guess. You have ${lives} chances left`;
-            thirdUiHeading.innerHTML = "Second Player";
+            fourthUiError.innerHTML = `Wrong guess. You have ${lives} chances left`;
+            fourthUiHeading.innerHTML = "Second Player";
+            showMessage(fourthUiError);
             if (lives == 0) {
-                thirdUi.style.display = "none";
-                fourthUi.style.display = "block";
-                fourthUiHeading.innerHTML = "First Player Win!";
+                fourthUi.style.display = "none";
+                fifthUi.style.display = "block";
+                fifthUiHeading.innerHTML = `${firstInput.value} Wins`;
 
                 firstInput.value = "";
                 secondInput.value = "";
                 thirdInput.value = "";
+                fourthInput.value = "";
             }
         }
     }
     else {
-        thirdUiError.innerHTML = "Please enter a number between 1 and 10";
+        fourthUiError.innerHTML = "Please enter a number between 1 and 10";
+        showMessage(fourthUiError);
     }
-
-
-
 })
+
